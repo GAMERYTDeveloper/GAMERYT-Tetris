@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAMERYT Tetris</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#4f46e5"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -164,6 +164,11 @@
 </head>
 <body class="antialiased">
 
+    <!-- Offline Banner -->
+    <div id="offline-banner" class="hidden bg-yellow-500 text-white text-center p-2 fixed top-0 w-full z-50">
+        You're offline. You can still play Tetris!
+    </div>
+
     <!-- Main Container -->
     <div id="app" class="min-h-screen flex flex-col">
 
@@ -173,7 +178,7 @@
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center space-x-3">
                         <div id="logo-icon"><svg class="h-8 w-8 text-purple-600" viewBox="0 0 24 24" fill="currentColor"><path d="M9 3H15V9H21V15H15V21H9V15H3V9H9V3Z"/></svg></div>
-                        <span class="text-xl font-bold hidden sm:block" data-lang-key="title">GAMERYT Tetris</span>
+                        <span class="text-xl font-bold" data-lang-key="title">GAMERYT Tetris</span>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
                         <a href="#" class="nav-link active" data-tab="game" data-lang-key="nav_game">Game</a>
@@ -350,80 +355,73 @@
             },
             fr: {
                 title: "GAMERYT Tetris", nav_game: "Jeu", nav_editor: "Éditeur", nav_settings: "Paramètres",
-                score: "Score", placed: "Placés", lines: "Lignes", try_again: "Réessayer", next: "Suivant", wins: "Victoires", overs: "Défaites", controls: "Contrôles",
-                editor_title: "Éditeur de Blocs", editor_desc_full: "Modifiez les blocs par défaut ou créez, enregistrez et supprimez vos propres blocs personnalisés !", editor_select: "Sélectionner ou Créer un Bloc", editor_color: "Couleur du Bloc", editor_save: "Enregistrer le Bloc", editor_add_new: "Ajouter Nouveau",
-                settings_gameplay: "Jouabilité", settings_layout: "Disposition & UI", settings_layout_desc: "Basculer la visibilité des éléments de l'écran de jeu.",
-                settings_speed: "Vitesse du Jeu", speed_default: "Par défaut", settings_sfx: "Effets Sonores", sfx_off: "Désactivé", sfx_on: "Activé",
-                settings_shortcuts: "Raccourcis Clavier", shortcut_move: "Déplacer la pièce", shortcut_rotate: "Faire pivoter la pièce", shortcut_soft_drop: "Descente douce", shortcut_hard_drop: "Descente rapide",
-                credits: "Réalisé par GAMERYTDeveloper",
-                close: "Fermer", cancel: "Annuler", game_over: "Jeu terminé !", line_cleared: "Ligne effacée !", you_win: "Vous avez gagné !",
-                block_saved: "Bloc enregistré !", block_created: "Nouveau bloc créé !", block_deleted: "Bloc supprimé !", confirm_delete_block: "Êtes-vous sûr de vouloir supprimer ce bloc personnalisé ?",
+                score: "Score", placed: "Placées", lines: "Lignes", try_again: "Réessayer", next: "Suivant", wins: "Victoires", overs: "Défaites", controls: "Contrôles",
+                editor_title: "Éditeur de Blocs", editor_desc_full: "Modifiez les blocs par défaut, ou créez, sauvegardez et supprimez vos propres blocs personnalisés!", editor_select: "Sélectionner ou Créer", editor_color: "Couleur du Bloc", editor_save: "Sauvegarder", editor_add_new: "Ajouter Nouveau",
+                settings_gameplay: "Jeu", settings_layout: "Disposition et IU", settings_layout_desc: "Activez ou désactivez la visibilité des éléments de l'écran de jeu.",
+                settings_speed: "Vitesse du jeu", speed_default: "Défaut", settings_sfx: "Effets sonores", sfx_off: "Désactivé", sfx_on: "Activé",
+                settings_shortcuts: "Raccourcis clavier", shortcut_move: "Déplacer la pièce", shortcut_rotate: "Faire pivoter la pièce", shortcut_soft_drop: "Chute douce", shortcut_hard_drop: "Chute brutale",
+                close: "Fermer", cancel: "Annuler", game_over: "Jeu terminé!", line_cleared: "Ligne effacée!", you_win: "Vous avez gagné!",
+                block_saved: "Bloc sauvegardé!", block_created: "Nouveau bloc créé!", block_deleted: "Bloc supprimé!", confirm_delete_block: "Êtes-vous sûr de vouloir supprimer ce bloc personnalisé?",
             },
             de: {
                 title: "GAMERYT Tetris", nav_game: "Spiel", nav_editor: "Editor", nav_settings: "Einstellungen",
-                score: "Punktzahl", placed: "Platziert", lines: "Linien", try_again: "Erneut versuchen", next: "Nächste", wins: "Siege", overs: "Niederlagen", controls: "Steuerung",
-                editor_title: "Block-Editor", editor_desc_full: "Bearbeite Standardblöcke oder erstelle, speichere und lösche eigene benutzerdefinierte Blöcke!", editor_select: "Block auswählen oder erstellen", editor_color: "Blockfarbe", editor_save: "Block speichern", editor_add_new: "Neu hinzufügen",
-                settings_gameplay: "Spielverlauf", settings_layout: "Layout & UI", settings_layout_desc: "Sichtbarkeit der Spielelemente umschalten.",
+                score: "Punktzahl", placed: "Platziert", lines: "Linien", try_again: "Erneut versuchen", next: "Nächster", wins: "Siege", overs: "Niederlagen", controls: "Steuerung",
+                editor_title: "Block-Editor", editor_desc_full: "Bearbeiten Sie Standardblöcke oder erstellen, speichern und löschen Sie Ihre eigenen benutzerdefinierten Blöcke!", editor_select: "Block auswählen oder erstellen", editor_color: "Blockfarbe", editor_save: "Block speichern", editor_add_new: "Neu hinzufügen",
+                settings_gameplay: "Spielablauf", settings_layout: "Layout & UI", settings_layout_desc: "Sichtbarkeit von Spielbildelementen umschalten.",
                 settings_speed: "Spielgeschwindigkeit", speed_default: "Standard", settings_sfx: "Soundeffekte", sfx_off: "Aus", sfx_on: "An",
-                settings_shortcuts: "Tastenkombinationen", shortcut_move: "Block bewegen", shortcut_rotate: "Block drehen", shortcut_soft_drop: "Sanftes Fallen", shortcut_hard_drop: "Schnelles Fallen",
-                credits: "Erstellt von GAMERYTDeveloper",
-                close: "Schließen", cancel: "Abbrechen", game_over: "Spiel vorbei!", line_cleared: "Linie entfernt!", you_win: "Du hast gewonnen!",
-                block_saved: "Block gespeichert!", block_created: "Neuer Block erstellt!", block_deleted: "Block gelöscht!", confirm_delete_block: "Möchten Sie diesen benutzerdefinierten Block wirklich löschen?",
+                settings_shortcuts: "Tastatürkürzel", shortcut_move: "Stein bewegen", shortcut_rotate: "Stein drehen", shortcut_soft_drop: "Weicher Fall", shortcut_hard_drop: "Harter Fall",
+                close: "Schließen", cancel: "Abbrechen", game_over: "Spiel vorbei!", line_cleared: "Reihe geschafft!", you_win: "Du hast gewonnen!",
+                block_saved: "Block gespeichert!", block_created: "Neuer Block erstellt!", block_deleted: "Block gelöscht!", confirm_delete_block: "Sind Sie sicher, dass Sie diesen benutzerdefinierten Block löschen möchten?",
             },
             ru: {
-                title: "GAMERYT Tetris", nav_game: "Игра", nav_editor: "Редактор", nav_settings: "Настройки",
+                title: "ГАМЕРИТ Тетрис", nav_game: "Игра", nav_editor: "Редактор", nav_settings: "Настройки",
                 score: "Счет", placed: "Размещено", lines: "Линии", try_again: "Попробовать снова", next: "Следующий", wins: "Победы", overs: "Поражения", controls: "Управление",
-                editor_title: "Редактор Блоков", editor_desc_full: "Редактируйте стандартные блоки или создавайте, сохраняйте и удаляйте свои собственные!", editor_select: "Выбрать или создать блок", editor_color: "Цвет блока", editor_save: "Сохранить блок", editor_add_new: "Добавить новый",
-                settings_gameplay: "Игровой процесс", settings_layout: "Макет и UI", settings_layout_desc: "Переключить видимость элементов игрового экрана.",
+                editor_title: "Редактор блоков", editor_desc_full: "Редактируйте стандартные блоки или создавайте, сохраняйте и удаляйте свои собственные блоки!", editor_select: "Выбрать или создать блок", editor_color: "Цвет блока", editor_save: "Сохранить блок", editor_add_new: "Добавить новый",
+                settings_gameplay: "Игровой процесс", settings_layout: "Макет и интерфейс", settings_layout_desc: "Переключить видимость элементов игрового экрана.",
                 settings_speed: "Скорость игры", speed_default: "По умолчанию", settings_sfx: "Звуковые эффекты", sfx_off: "Выкл", sfx_on: "Вкл",
-                settings_shortcuts: "Горячие клавиши", shortcut_move: "Двигать фигуру", shortcut_rotate: "Повернуть фигуру", shortcut_soft_drop: "Мягкое падение", shortcut_hard_drop: "Жесткое падение",
-                credits: "Сделано GAMERYTDeveloper",
-                close: "Закрыть", cancel: "Отмена", game_over: "Игра окончена!", line_cleared: "Линия очищена!", you_win: "Вы выиграли!",
-                block_saved: "Блок сохранен!", block_created: "Создан новый блок!", block_deleted: "Блок удален!", confirm_delete_block: "Вы уверены, что хотите удалить этот пользовательский блок?",
+                settings_shortcuts: "Горячие клавиши", shortcut_move: "Переместить фигуру", shortcut_rotate: "Повернуть фигуру", shortcut_soft_drop: "Мягкое падение", shortcut_hard_drop: "Жесткое падение",
+                close: "Закрыть", cancel: "Отмена", game_over: "Игра окончена!", line_cleared: "Линия очищена!", you_win: "Вы победили!",
+                block_saved: "Блок сохранен!", block_created: "Новый блок создан!", block_deleted: "Блок удален!", confirm_delete_block: "Вы уверены, что хотите удалить этот пользовательский блок?",
             },
             pt: {
                 title: "GAMERYT Tetris", nav_game: "Jogo", nav_editor: "Editor", nav_settings: "Configurações",
-                score: "Pontuação", placed: "Colocados", lines: "Linhas", try_again: "Tentar Novamente", next: "Próximo", wins: "Vitórias", overs: "Derrotas", controls: "Controles",
+                score: "Pontuação", placed: "Colocadas", lines: "Linhas", try_again: "Tentar Novamente", next: "Próximo", wins: "Vitórias", overs: "Derrotas", controls: "Controles",
                 editor_title: "Editor de Blocos", editor_desc_full: "Edite blocos padrão ou crie, salve e exclua seus próprios blocos personalizados!", editor_select: "Selecionar ou Criar Bloco", editor_color: "Cor do Bloco", editor_save: "Salvar Bloco", editor_add_new: "Adicionar Novo",
-                settings_gameplay: "Jogabilidade", settings_layout: "Layout & UI", settings_layout_desc: "Alternar visibilidade dos elementos da tela do jogo.",
+                settings_gameplay: "Jogabilidade", settings_layout: "Layout e IU", settings_layout_desc: "Alternar a visibilidade dos elementos da tela do jogo.",
                 settings_speed: "Velocidade do Jogo", speed_default: "Padrão", settings_sfx: "Efeitos Sonoros", sfx_off: "Desligado", sfx_on: "Ligado",
                 settings_shortcuts: "Atalhos de Teclado", shortcut_move: "Mover peça", shortcut_rotate: "Girar peça", shortcut_soft_drop: "Queda suave", shortcut_hard_drop: "Queda rápida",
-                credits: "Feito por GAMERYTDeveloper",
-                close: "Fechar", cancel: "Cancelar", game_over: "Fim de Jogo!", line_cleared: "Linha Limpa!", you_win: "Você venceu!",
-                block_saved: "Bloco salvo!", block_created: "Novo bloco criado!", block_deleted: "Bloco excluído!", confirm_delete_block: "Tem certeza que deseja excluir este bloco personalizado?",
+                close: "Fechar", cancel: "Cancelar", game_over: "Fim de Jogo!", line_cleared: "Linha Eliminada!", you_win: "Você venceu!",
+                block_saved: "Bloco salvo!", block_created: "Novo bloco criado!", block_deleted: "Bloco excluído!", confirm_delete_block: "Tem certeza de que deseja excluir este bloco personalizado?",
             },
             zh: {
-                title: "GAMERYT Tetris", nav_game: "游戏", nav_editor: "编辑器", nav_settings: "设置",
-                score: "得分", placed: "已放置", lines: "行数", try_again: "再试一次", next: "下一个", wins: "胜利", overs: "失败", controls: "控制",
-                editor_title: "方块编辑器", editor_desc_full: "编辑默认方块，或创建、保存和删除自定义方块！", editor_select: "选择或创建方块", editor_color: "方块颜色", editor_save: "保存方块", editor_add_new: "添加新方块",
-                settings_gameplay: "游戏玩法", settings_layout: "布局与界面", settings_layout_desc: "切换游戏屏幕元素的可见性。",
-                settings_speed: "游戏速度", speed_default: "默认", settings_sfx: "音效", sfx_off: "关闭", sfx_on: "开启",
-                settings_shortcuts: "快捷键", shortcut_move: "移动方块", shortcut_rotate: "旋转方块", shortcut_soft_drop: "软降", shortcut_hard_drop: "硬降",
-                credits: "由 GAMERYTDeveloper 制作",
-                close: "关闭", cancel: "取消", game_over: "游戏结束！", line_cleared: "消除一行！", you_win: "你赢了！",
-                block_saved: "方块已保存！", block_created: "新方块已创建！", block_deleted: "方块已删除！", confirm_delete_block: "确定要删除此自定义方块吗？",
+                title: "GAMERYT 俄罗斯方块", nav_game: "游戏", nav_editor: "编辑器", nav_settings: "设置",
+                score: "分数", placed: "已放置", lines: "行数", try_again: "再试一次", next: "下一个", wins: "胜利", overs: "失败", controls: "控件",
+                editor_title: "块编辑器", editor_desc_full: "编辑默认块，或创建、保存和删除您自己的自定义块！", editor_select: "选择或创建块", editor_color: "块颜色", editor_save: "保存块", editor_add_new: "添加新的",
+                settings_gameplay: "游戏玩法", settings_layout: "布局和界面", settings_layout_desc: "切换游戏屏幕元素的可见性。",
+                settings_speed: "游戏速度", speed_default: "默认", settings_sfx: "音效", sfx_off: "关", sfx_on: "开",
+                settings_shortcuts: "键盘快捷键", shortcut_move: "移动方块", shortcut_rotate: "旋转方块", shortcut_soft_drop: "软降", shortcut_hard_drop: "硬降",
+                close: "关闭", cancel: "取消", game_over: "游戏结束！", line_cleared: "消除了一行！", you_win: "你赢了！",
+                block_saved: "块已保存！", block_created: "新块已创建！", block_deleted: "块已删除！", confirm_delete_block: "您确定要删除此自定义块吗？",
             },
             ja: {
-                title: "GAMERYT Tetris", nav_game: "ゲーム", nav_editor: "エディター", nav_settings: "設定",
-                score: "スコア", placed: "配置済み", lines: "ライン", try_again: "もう一度", next: "次", wins: "勝利", overs: "敗北", controls: "コントロール",
-                editor_title: "ブロックエディター", editor_desc_full: "デフォルトのブロックを編集したり、独自のカスタムブロックを作成・保存・削除できます！", editor_select: "ブロックを選択または作成", editor_color: "ブロックの色", editor_save: "ブロックを保存", editor_add_new: "新規追加",
-                settings_gameplay: "ゲームプレイ", settings_layout: "レイアウトとUI", settings_layout_desc: "ゲーム画面要素の表示を切り替えます。",
+                title: "GAMERYT テトリス", nav_game: "ゲーム", nav_editor: "エディタ", nav_settings: "設定",
+                score: "スコア", placed: "配置済み", lines: "ライン", try_again: "もう一度", next: "次", wins: "勝利", overs: "敗北", controls: "操作",
+                editor_title: "ブロックエディタ", editor_desc_full: "デフォルトのブロックを編集するか、独自のカスタムブロックを作成、保存、削除します！", editor_select: "ブロックを選択または作成", editor_color: "ブロックの色", editor_save: "ブロックを保存", editor_add_new: "新規追加",
+                settings_gameplay: "ゲームプレイ", settings_layout: "レイアウトとUI", settings_layout_desc: "ゲーム画面要素の表示/非表示を切り替えます。",
                 settings_speed: "ゲーム速度", speed_default: "デフォルト", settings_sfx: "効果音", sfx_off: "オフ", sfx_on: "オン",
                 settings_shortcuts: "キーボードショートカット", shortcut_move: "ピースを移動", shortcut_rotate: "ピースを回転", shortcut_soft_drop: "ソフトドロップ", shortcut_hard_drop: "ハードドロップ",
-                credits: "GAMERYTDeveloperによる制作",
-                close: "閉じる", cancel: "キャンセル", game_over: "ゲームオーバー！", line_cleared: "ラインクリア！", you_win: "あなたの勝ち！",
-                block_saved: "ブロックを保存しました！", block_created: "新しいブロックを作成しました！", block_deleted: "ブロックを削除しました！", confirm_delete_block: "このカスタムブロックを削除してもよろしいですか？",
+                close: "閉じる", cancel: "キャンセル", game_over: "ゲームオーバー！", line_cleared: "ラインを消去しました！", you_win: "あなたの勝ちです！",
+                block_saved: "ブロックが保存されました！", block_created: "新しいブロックが作成されました！", block_deleted: "ブロックが削除されました！", confirm_delete_block: "このカスタムブロックを本当に削除しますか？",
             },
             ko: {
-                title: "GAMERYT Tetris", nav_game: "게임", nav_editor: "에디터", nav_settings: "설정",
-                score: "점수", placed: "배치됨", lines: "줄", try_again: "다시 시도", next: "다음", wins: "승리", overs: "패배", controls: "컨트롤",
-                editor_title: "블록 에디터", editor_desc_full: "기본 블록을 편집하거나, 사용자 정의 블록을 만들고 저장 및 삭제하세요!", editor_select: "블록 선택 또는 생성", editor_color: "블록 색상", editor_save: "블록 저장", editor_add_new: "새로 추가",
-                settings_gameplay: "게임플레이", settings_layout: "레이아웃 및 UI", settings_layout_desc: "게임 화면 요소의 표시를 전환합니다.",
-                settings_speed: "게임 속도", speed_default: "기본값", settings_sfx: "효과음", sfx_off: "끄기", sfx_on: "켜기",
-                settings_shortcuts: "키보드 단축키", shortcut_move: "블록 이동", shortcut_rotate: "블록 회전", shortcut_soft_drop: "소프트 드롭", shortcut_hard_drop: "하드 드롭",
-                credits: "GAMERYTDeveloper 제작",
-                close: "닫기", cancel: "취소", game_over: "게임 오버!", line_cleared: "줄 삭제!", you_win: "승리!",
-                block_saved: "블록이 저장되었습니다!", block_created: "새 블록이 생성되었습니다!", block_deleted: "블록이 삭제되었습니다!", confirm_delete_block: "이 사용자 정의 블록을 삭제하시겠습니까?",
+                title: "GAMERYT 테트리스", nav_game: "게임", nav_editor: "에디터", nav_settings: "설정",
+                score: "점수", placed: "놓음", lines: "줄", try_again: "다시 시도", next: "다음", wins: "승리", overs: "패배", controls: "컨트롤",
+                editor_title: "블록 에디터", editor_desc_full: "기본 블록을 편집하거나 자신만의 맞춤 블록을 만들고, 저장하고, 삭제하세요!", editor_select: "블록 선택 또는 생성", editor_color: "블록 색상", editor_save: "블록 저장", editor_add_new: "새로 추가",
+                settings_gameplay: "게임 플레이", settings_layout: "레이아웃 및 UI", settings_layout_desc: "게임 화면 요소의 가시성을 전환합니다.",
+                settings_speed: "게임 속도", speed_default: "기본값", settings_sfx: "음향 효과", sfx_off: "끄기", sfx_on: "켜기",
+                settings_shortcuts: "키보드 단축키", shortcut_move: "조각 이동", shortcut_rotate: "조각 회전", shortcut_soft_drop: "소프트 드롭", shortcut_hard_drop: "하드 드롭",
+                close: "닫기", cancel: "취소", game_over: "게임 종료!", line_cleared: "줄이 지워졌습니다!", you_win: "승리했습니다!",
+                block_saved: "블록이 저장되었습니다!", block_created: "새 블록이 생성되었습니다!", block_deleted: "블록이 삭제되었습니다!", confirm_delete_block: "이 맞춤 블록을 정말로 삭제하시겠습니까?",
             },
         };
 
@@ -557,7 +555,7 @@
         // --- Tetris Game Logic ---
         const canvas = document.getElementById('tetris-canvas'), context = canvas.getContext('2d');
         const nextCanvas = document.getElementById('next-piece-canvas'), nextContext = nextCanvas.getContext('2d');
-        const COLS = 10, ROWS = 20, BLOCK_SIZE = 30, WIN_CONDITION_LINES = 5;
+        const COLS = 10, ROWS = 20, BLOCK_SIZE = 30, WIN_CONDITION_LINES = 10;
         context.canvas.width = COLS * BLOCK_SIZE; context.canvas.height = ROWS * BLOCK_SIZE;
         let board, player, nextPlayer, score, placedCount, totalLinesCleared, gameLoop, gameRunning;
         const colors = [ null, '#FF0D72', '#0DC2FF', '#0DFF72', '#F538FF', '#FF8E0D', '#FFE138', '#3877FF', '#38D9FF', '#9E38FF', '#FF3838', '#38FFB8' ];
@@ -808,6 +806,70 @@
         document.getElementById('rotate-btn').addEventListener('click', () => { if(gameRunning) { playerRotate(); draw(); } });
         document.getElementById('fast-down-btn').addEventListener('click', () => { if(gameRunning) { playerDrop(); draw(); } });
 
+        // --- PWA & Offline Functionality ---
+        function setupPWA() {
+            // 1. Create and inject manifest link
+            const manifest = {
+                "name": "GAMERYT Tetris",
+                "short_name": "Tetris",
+                "start_url": ".",
+                "display": "standalone",
+                "background_color": "#111827",
+                "theme_color": "#4f46e5",
+                "description": "A classic Tetris game by GAMERYTDeveloper.",
+                "icons": [{
+                    "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRmNDZlNSI+PHBhdGggZD0iTTkgM0gxNVY5SDIxVjE1SDE1VjIxSDlWMTVIM1Y5SDlWM1oiLz48L3N2Zz4=",
+                    "sizes": "192x192",
+                    "type": "image/svg+xml"
+                }, {
+                    "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRmNDZlNSI+PHBhdGggZD0iTTkgM0gxNVY5SDIxVjE1SDE1VjIxSDlWMTVIM1Y5SDlWM1oiLz48L3N2Zz4=",
+                    "sizes": "512x512",
+                    "type": "image/svg+xml"
+                }]
+            };
+            const manifestURL = `data:application/json;base64,${btoa(JSON.stringify(manifest))}`;
+            document.querySelector('head').insertAdjacentHTML('beforeend', `<link rel="manifest" href="${manifestURL}">`);
+
+            // 2. Register Service Worker
+            if ('serviceWorker' in navigator) {
+                const swCode = `
+                    const CACHE_NAME = 'gameryt-tetris-v1';
+                    const ASSETS_TO_CACHE = [ './' ];
+                    self.addEventListener('install', (event) => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
+                        );
+                    });
+                    self.addEventListener('fetch', (event) => {
+                        event.respondWith(
+                            caches.match(event.request).then((response) => response || fetch(event.request))
+                        );
+                    });
+                `;
+                const swBlob = new Blob([swCode], { type: 'application/javascript' });
+                const swURL = URL.createObjectURL(swBlob);
+                navigator.serviceWorker.register(swURL)
+                    .then(() => console.log('Service Worker Registered'))
+                    .catch(err => console.error('Service Worker Registration Failed:', err));
+            }
+
+            // 3. Offline detection
+            const offlineBanner = document.getElementById('offline-banner');
+            const appContainer = document.getElementById('app');
+            function updateOnlineStatus() {
+                if (navigator.onLine) {
+                    offlineBanner.classList.add('hidden');
+                    appContainer.style.paddingTop = '0';
+                } else {
+                    offlineBanner.classList.remove('hidden');
+                    appContainer.style.paddingTop = offlineBanner.offsetHeight + 'px';
+                }
+            }
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+            updateOnlineStatus();
+        }
+
         // --- Initial Setup ---
         loadSettings();
         loadGameStats();
@@ -815,6 +877,7 @@
         updateLanguage('en');
         renderBlockSelection();
         startGame();
+        setupPWA();
         
         function animate() {
             if (gameRunning) draw();
