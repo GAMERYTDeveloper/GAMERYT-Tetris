@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAMERYT Tetris</title>
+    <meta name="description" content="Our Tetris Game so you can do custom blocks, Included Sound Effects" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="theme-color" content="#4f46e5"/>
-
-<meta name="description" content="Our Tetris Game so you can do custom blocks, Included Sound Effects" />
-<link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -163,6 +162,13 @@
             min-width: 300px;
             max-width: 90%;
         }
+
+        /* Responsive Logo */
+        @media (max-width: 470px) {
+            #logo-and-title {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -179,7 +185,7 @@
         <header class="surface shadow-md sticky top-0 z-40">
             <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
-                    <div class="flex items-center space-x-3">
+                    <div id="logo-and-title" class="flex items-center space-x-3">
                         <div id="logo-icon"><svg class="h-8 w-8 text-purple-600" viewBox="0 0 24 24" fill="currentColor"><path d="M9 3H15V9H21V15H15V21H9V15H3V9H9V3Z"/></svg></div>
                         <span class="text-xl font-bold" data-lang-key="title">GAMERYT Tetris</span>
                     </div>
@@ -240,7 +246,7 @@
                         <div id="game-info-container" class="surface p-6 rounded-lg shadow-lg">
                             <h2 class="text-2xl font-bold mb-4" data-lang-key="score">Score</h2><p id="score" class="text-4xl font-mono mb-6">0</p>
                             <h2 class="text-2xl font-bold mb-4" data-lang-key="placed">Placed</h2><p id="placed" class="text-4xl font-mono">0</p>
-                            <h2 class="text-2xl font-bold mb-4" data-lang-key="lines">Lines</h2><p id="lines-count" class="text-4xl font-mono">0 / 10</p>
+                            <h2 class="text-2xl font-bold mb-4" data-lang-key="lines">Lines</h2><p id="lines-count" class="text-4xl font-mono">0 / 5</p>
                         </div>
                         <div id="next-piece-container" class="surface p-6 rounded-lg shadow-lg">
                              <h2 class="text-2xl font-bold mb-4" data-lang-key="next">Next</h2>
@@ -558,7 +564,7 @@
         // --- Tetris Game Logic ---
         const canvas = document.getElementById('tetris-canvas'), context = canvas.getContext('2d');
         const nextCanvas = document.getElementById('next-piece-canvas'), nextContext = nextCanvas.getContext('2d');
-        const COLS = 10, ROWS = 20, BLOCK_SIZE = 30, WIN_CONDITION_LINES = 10;
+        const COLS = 10, ROWS = 20, BLOCK_SIZE = 30, WIN_CONDITION_LINES = 5;
         context.canvas.width = COLS * BLOCK_SIZE; context.canvas.height = ROWS * BLOCK_SIZE;
         let board, player, nextPlayer, score, placedCount, totalLinesCleared, gameLoop, gameRunning;
         const colors = [ null, '#FF0D72', '#0DC2FF', '#0DFF72', '#F538FF', '#FF8E0D', '#FFE138', '#3877FF', '#38D9FF', '#9E38FF', '#FF3838', '#38FFB8' ];
@@ -849,8 +855,7 @@
                         );
                     });
                 `;
-                const swBlob = new Blob([swCode], { type: 'application/javascript' });
-                const swURL = URL.createObjectURL(swBlob);
+                const swURL = `data:application/javascript;base64,${btoa(swCode)}`;
                 navigator.serviceWorker.register(swURL)
                     .then(() => console.log('Service Worker Registered'))
                     .catch(err => console.error('Service Worker Registration Failed:', err));
